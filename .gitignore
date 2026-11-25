@@ -2,3 +2,9 @@ bin/
 *.test
 *.out
 .env
+
+infra/terraform.tfstate
+infra/terraform.tfstate.*
+infra/.terraform/
+kubeconfig*
+*.b64
