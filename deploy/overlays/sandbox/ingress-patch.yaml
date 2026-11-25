@@ -6,3 +6,12 @@ spec:
   ingressClassName: traefik
   rules:
     - host: shop.91.107.206.11.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: storefront
+                port:
+                  number: 8080
