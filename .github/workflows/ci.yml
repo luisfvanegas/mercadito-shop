@@ -149,6 +149,9 @@ jobs:
           kubectl --kubeconfig="$KUBECONFIG" -n "$NS" delete job -l app=catalog-migrate --ignore-not-found=true
           kubectl --kubeconfig="$KUBECONFIG" create -f deploy/overlays/sandbox/migrate-job.yaml
           kubectl --kubeconfig="$KUBECONFIG" -n "$NS" wait --for=condition=complete -l app=catalog-migrate job --timeout=300s
+      - name: Restart catalog after migration
+        run: |
+          kubectl --kubeconfig="$KUBECONFIG" -n "$NS" rollout restart deploy/catalog
       - name: Pull OpenTofu state
         run: |
           kubectl --kubeconfig="$KUBECONFIG" -n "$NS" get configmap tofu-state -o jsonpath='{.data.tfstate}' > infra/terraform.tfstate 2>/dev/null || rm -f infra/terraform.tfstate
