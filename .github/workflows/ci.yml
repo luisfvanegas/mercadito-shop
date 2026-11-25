@@ -113,11 +113,11 @@ jobs:
     permissions:
       contents: read
     env:
-      KUBECONFIG: ${{ runner.temp }}/kubeconfig
+      KUBECONFIG: ${{ github.workspace }}/kubeconfig
       KUBECONFIG_B64: ${{ secrets.KUBECONFIG_SHOP_B64 }}
       NS: ${{ vars.SHOP_NAMESPACE || 'luis-shop' }}
       HOST: ${{ vars.SHOP_HOST || 'shop.91.107.206.11.sslip.io' }}
-      TF_VAR_kubeconfig: ${{ runner.temp }}/kubeconfig
+      TF_VAR_kubeconfig: ${{ github.workspace }}/kubeconfig
       TF_VAR_namespace: ${{ vars.SHOP_NAMESPACE || 'luis-shop' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
