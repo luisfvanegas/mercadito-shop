@@ -147,7 +147,7 @@ jobs:
       - name: Run migration
         run: |
           kubectl --kubeconfig="$KUBECONFIG" -n "$NS" delete job -l app=catalog-migrate --ignore-not-found=true
-          kubectl --kubeconfig="$KUBECONFIG" apply -f deploy/overlays/sandbox/migrate-job.yaml
+          kubectl --kubeconfig="$KUBECONFIG" create -f deploy/overlays/sandbox/migrate-job.yaml
           kubectl --kubeconfig="$KUBECONFIG" -n "$NS" wait --for=condition=complete -l app=catalog-migrate job --timeout=300s
       - name: Pull OpenTofu state
         run: |
