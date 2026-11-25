@@ -24,6 +24,8 @@ spec:
       maxSurge: 1
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 60
       securityContext:
         runAsNonRoot: true
@@ -88,6 +90,8 @@ spec:
       maxSurge: 1
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 60
       securityContext:
         runAsNonRoot: true
@@ -158,6 +162,8 @@ spec:
       maxSurge: 1
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 60
       securityContext:
         runAsNonRoot: true
@@ -222,6 +228,8 @@ spec:
       maxSurge: 1
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 60
       securityContext:
         runAsNonRoot: true
@@ -286,6 +294,8 @@ spec:
       maxSurge: 1
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 60
       securityContext:
         runAsNonRoot: true

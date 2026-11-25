@@ -12,6 +12,8 @@ spec:
         app: catalog-migrate
     spec:
       restartPolicy: OnFailure
+      imagePullSecrets:
+        - name: ghcr-pull
       securityContext:
         runAsNonRoot: true
         seccompProfile:
